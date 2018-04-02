@@ -10,7 +10,6 @@ require 'active_support'
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/reporters'
-require 'mocha/minitest'
 require 'pry'
 require 'pp'
 
