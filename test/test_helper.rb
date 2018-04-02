@@ -5,16 +5,27 @@ ENV['RAILS_ENV'] = 'test'
 require_relative 'dummy/config/environment'
 ActiveRecord::Migrator.migrate File.expand_path("dummy/db/migrate/", __dir__)
 
+require 'active_support'
+
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/reporters'
+require 'mocha/minitest'
 require 'pry'
 require 'pp'
 
 require 'simple_jsonapi/rails'
 require 'simple_jsonapi/rails/test_helpers'
 
-Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+if ENV['BUILD_NUMBER']
+  Minitest::Reporters.use!(
+    [MiniTest::Reporters::DefaultReporter.new, MiniTest::Reporters::JUnitReporter.new('test/reports')],
+    ENV,
+    Minitest.backtrace_filter,
+  )
+else
+  Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new, ENV, Minitest.backtrace_filter)
+end
 
 class ActiveSupport::TestCase
   extend Minitest::Spec::DSL
