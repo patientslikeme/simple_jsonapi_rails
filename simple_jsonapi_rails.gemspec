@@ -1,11 +1,12 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'simple_jsonapi/version'
+require 'simple_jsonapi/rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'simple_jsonapi_rails'
   spec.version       = SimpleJsonapi::Rails::VERSION
+  spec.license       = "MIT"
   spec.authors       = ['PatientsLikeMe']
   spec.email         = ['engineers@patientslikeme.com']
   spec.homepage      = 'https://www.patientslikeme.com'
@@ -14,14 +15,8 @@ Gem::Specification.new do |spec|
   spec.description   = 'A library for integrating SimpleJsonapi into a Rails application.'
 
   spec.files         = `git ls-files -z`.split("\x0")
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^test/})
   spec.require_paths = ['lib']
-
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = 'https://gemfury.io'
-  end
 
   spec.add_runtime_dependency 'simple_jsonapi'
   spec.add_runtime_dependency 'rails', '>= 4.2', '< 6.0'
