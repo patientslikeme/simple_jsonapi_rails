@@ -1,6 +1,6 @@
 # SimpleJsonapi/Rails
 
-A library for integrating SimpleJsonapi into a Rails application.
+A library for integrating [SimpleJsonapi](https://github.com/patientslikeme/simple_jsonapi) into a Rails application.
 
 ## Installation
 
@@ -66,7 +66,7 @@ end
 
 ### Create and update actions
 
-Incoming JSON:API documents can be parsed into a more Rails-friendly structure by calling **`jsonapi_deserialize`** in the controller class.
+Incoming JSON API documents can be parsed into a more Rails-friendly structure by calling **`jsonapi_deserialize`** in the controller class.
 
 `jsonapi_deserialize` converts this incoming document ...
 
@@ -209,6 +209,7 @@ The `Accept` header, if it present, must also be set to `application/vnd+api.jso
 returned with status 406 Not Acceptable.
 
 ## Routing
+
 Rails' route mapper works well for most jsonapi resource routes. However, simple_jsonapi_rails does supply helpers method
 for defining relationship routes, which can be trickier:
 
