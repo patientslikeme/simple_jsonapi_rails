@@ -235,6 +235,11 @@ class ActionControllerTest < ActionDispatch::IntegrationTest
                          controller: "orders/relationships/items",
                          action: "replace",
                          id: 1
+
+        assert_generates "orders/1/relationships/items",
+                         controller: "orders/relationships/items",
+                         action: "fetch",
+                         id: 1
       end
 
       it "generates the correct path helpers" do

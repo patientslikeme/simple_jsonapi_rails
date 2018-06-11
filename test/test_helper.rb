@@ -3,6 +3,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 # Set up the dummy app
 ENV['RAILS_ENV'] = 'test'
 require_relative 'dummy/config/environment'
+# change to ActiveRecord::MigrationContext.new(File.expand_path("dummy/db/migrate/", __dir__)).migrate
+# when we upgrade rails >= 5.2.0
 ActiveRecord::Migrator.migrate File.expand_path("dummy/db/migrate/", __dir__)
 
 require 'active_support'
