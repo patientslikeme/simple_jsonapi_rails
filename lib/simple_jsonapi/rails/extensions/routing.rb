@@ -5,6 +5,7 @@ module SimpleJsonapi
         add: :create,
         remove: :destroy,
         replace: :update,
+        fetch: :show,
       }.freeze
 
       SUPPORTED_TO_MANY_ACTIONS = ACTION_MAP.keys.freeze
@@ -47,7 +48,7 @@ module SimpleJsonapi
 
       def ensure_actions_supported(actions)
         if actions.any? { |action| SUPPORTED_TO_MANY_ACTIONS.exclude?(action) }
-          raise ArgumentError, "#jsonapi_to_many_relationship supports :add, :remove, and :replace actions"
+          raise ArgumentError, "#jsonapi_to_many_relationship supports :add, :remove, :replace, and :fetch actions"
         end
       end
     end

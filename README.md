@@ -226,6 +226,7 @@ This code generates the following paths and routes/controller action mappings.
 orders_relationships_items    POST   /orders/:order_id/relationships/items(.:format)   orders/relationships/items#add
 orders_relationships_items    DELETE /orders/:order_id/relationships/items(.:format)   orders/relationships/items#remove
 orders_relationships_items    PATCH  /orders/:order_id/relationships/items(.:format)   orders/relationships/items#replace
+orders_relationships_items    GET    /orders/:order_id/relationships/items(.:format)   orders/relationships/items#fetch
 
 orders_relationships_customer PATCH  /orders/:order_id/customer(.:format)              orders/relationships/customer#replace
 
@@ -243,4 +244,3 @@ Once pull request is merged to master, on latest master:
    compatible release) | minor (new features) | patch (bugfixes) ]
 2. Update version in lib/global_enforcer/version.rb
 3. Release by running `bundle exec rake release`
-

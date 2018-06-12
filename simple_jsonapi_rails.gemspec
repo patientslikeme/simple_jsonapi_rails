@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'simple_jsonapi'
   spec.add_runtime_dependency 'rails', '>= 4.2', '< 6.0'
 
+  spec.add_development_dependency 'rails', '~> 5.1.0'
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'minitest'
