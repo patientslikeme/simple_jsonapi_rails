@@ -30,6 +30,11 @@ class OrdersController < ApiController
     render jsonapi_resource: order, serializer: OrderSerializer, status: :ok
   end
 
+  def destroy
+    Order.find(params[:id]).destroy
+    head :no_content
+  end
+
   private
 
   def order_params
