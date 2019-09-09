@@ -19,10 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'simple_jsonapi'
-  spec.add_runtime_dependency 'rails', '>= 4.2', '< 6.0'
+  spec.add_runtime_dependency 'rails', '>= 4.2', '< 7.0'
 
   spec.add_development_dependency 'appraisal'
-  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'minitest-reporters', '~> 1.1.11'
