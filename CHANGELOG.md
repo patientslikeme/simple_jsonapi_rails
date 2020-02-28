@@ -1,3 +1,6 @@
+## Version 1.3.0 - February 28, 2020
+* Fixing deprecation warning about media_type
+
 ## Version 1.2.0 - September 9, 2019
 * Adding support for Rails 6
 
