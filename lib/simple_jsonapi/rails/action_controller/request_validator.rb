@@ -4,7 +4,7 @@ module SimpleJsonapi
       class RequestValidator
         attr_reader :request, :params
 
-        delegate :body, :content_type, :accept, :path, to: :request, prefix: true
+        delegate :body, :content_type, :media_type, :accept, :path, to: :request, prefix: true
 
         def initialize(request, params)
           @request = request
@@ -12,7 +12,11 @@ module SimpleJsonapi
         end
 
         def valid_content_type_header?
-          !request_has_body? || request_content_type == SimpleJsonapi::MIME_TYPE
+          if request.respond_to?(:media_type)
+            !request_has_body? || request_media_type == SimpleJsonapi::MIME_TYPE
+          else
+            !request_has_body? || request_content_type == SimpleJsonapi::MIME_TYPE
+          end
         end
 
         def valid_accept_header?

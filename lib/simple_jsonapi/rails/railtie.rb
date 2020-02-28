@@ -14,17 +14,32 @@ module SimpleJsonapi
           # In the renderers, `self` is the controller
 
           ::ActionController::Renderers.add(:jsonapi_resource) do |resource, options|
-            self.content_type ||= Mime[:jsonapi]
+            if respond_to?(:media_type)
+              self.content_type = Mime[:jsonapi] unless self.media_type
+            else
+              self.content_type ||= Mime[:jsonapi]
+            end
+
             SimpleJsonapi.render_resource(resource, options).to_json
           end
 
           ::ActionController::Renderers.add(:jsonapi_resources) do |resources, options|
-            self.content_type ||= Mime[:jsonapi]
+            if respond_to?(:media_type)
+              self.content_type = Mime[:jsonapi] unless self.media_type
+            else
+              self.content_type ||= Mime[:jsonapi]
+            end
+
             SimpleJsonapi.render_resources(resources, options).to_json
           end
 
           ::ActionController::Renderers.add(:jsonapi_errors) do |errors, options|
-            self.content_type ||= Mime[:jsonapi]
+            if respond_to?(:media_type)
+              self.content_type = Mime[:jsonapi] unless self.media_type
+            else
+              self.content_type ||= Mime[:jsonapi]
+            end
+
             SimpleJsonapi.render_errors(errors, options).to_json
           end
         end
